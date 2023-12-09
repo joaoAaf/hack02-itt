@@ -19,7 +19,7 @@ jobs:
 
       ##########APPLICATION##########
       - name: Build Application Go
-        run: go build -v golang-exemplo-principal/main.go
+        run: cd golang-exemplo-principal && go build -v main.go
         
       ##########DATABASE##########
       - name: Build DB
