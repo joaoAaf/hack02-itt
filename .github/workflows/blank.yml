@@ -24,6 +24,10 @@ jobs:
         run: go build -v main.go
         
   job_image_build_and_push:
+  
+    needs:
+      job_application_test_and_build
+      
     name: Build and push of image
     runs-on: ubuntu-latest
     
