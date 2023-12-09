@@ -20,18 +20,17 @@ jobs:
       ##########APPLICATION##########
       - name: Build Application Go
         run: go build -v main.go
-        
-      ##########DATABASE##########
-      - name: Build DB
-        run: docker compose build
-      # passo para subir do banco de dados por meio do docker compose
-      - name: Create DB
-        run: docker compose up -d
-      # este passo executará os testes do código Go
+
+      ##########TESTS##########
       - name: Test
         run: go test -v main_test.go
         
-  # tarefa de build
-  #build:
-    #needs: test
-    #runs-on: ubuntu-latest
+      ##########DATABASE##########
+      #- name: Build DB
+       # run: docker compose build
+      # passo para subir do banco de dados por meio do docker compose
+      #- name: Create DB
+        #run: docker compose up -d
+      # este passo executará os testes do código Go
+
+
