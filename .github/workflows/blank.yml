@@ -52,7 +52,7 @@ jobs:
         #run: docker compose up -d
       # este passo executará os testes do código Go
       
-      ##########DATABASE##########
+      ##########DATABASE###
       #- name: Build DB
        # run: docker compose build
       # passo para subir do banco de dados por meio do docker compose
