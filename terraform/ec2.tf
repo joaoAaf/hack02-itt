@@ -6,21 +6,18 @@ resource "aws_instance" "hack02-itt" {
   tags = {
     Name = "hack02-itt"
   }
-  # provisioner "file" {
-  #   source = "configs.sh"
-  #   destination = "configs.sh"
-  # }
+  provisioner "file" {
+    source = "configs.sh"
+    destination = "configs.sh"
+  }
   provisioner "file" {
     source = "docker-compose.yml"
     destination = "docker-compose.yml"
   }
   provisioner "remote-exec" {
     inline = [ 
-        "sudo apt-get update",
-        "sudo apt-get install curl -y",
-        "curl -fsSL https://get.docker.com -o get-docker.sh",
-        "sudo sh get-docker.sh",
-        "rm get-docker.sh",
+        "sudo chmod +x configs.sh",
+        "sudo ./configs.sh",
         "sudo docker compose up -d",
     ]
   }
