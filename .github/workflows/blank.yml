@@ -17,14 +17,20 @@ jobs:
         with:
           go-version: 1.19
 
+      ##########TESTS##########
+      - name: Test
+        run: go test -v
+
       ##########APPLICATION##########
       - name: Build Application Go
         run: go build -v main.go
 
-      ##########TESTS##########
-      - name: Test
-        run: go test -v
-        
+      ##########CREATE IMAGE##########
+      # passo para subir do banco de dados por meio do docker compose
+      #- name: Create DB
+        #run: docker compose up -d
+      # este passo executará os testes do código Go
+      
       ##########DATABASE##########
       #- name: Build DB
        # run: docker compose build
