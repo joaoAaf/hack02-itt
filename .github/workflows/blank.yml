@@ -23,7 +23,7 @@ jobs:
 
       ##########TESTS##########
       - name: Test
-        run: go test -v main_test.go
+        run: go test -v
         
       ##########DATABASE##########
       #- name: Build DB
