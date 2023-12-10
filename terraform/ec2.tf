@@ -24,7 +24,7 @@ resource "aws_instance" "hack02-itt" {
   connection {
     type = "ssh"
     user = "ubuntu"
-    # private_key = var.ssh_key
+    private_key = file("./key.pem")
     host = self.public_ip
   }
 }
