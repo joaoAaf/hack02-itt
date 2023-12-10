@@ -9,6 +9,7 @@ env:
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
   TF_WORKSPACE: "SOME-PROJECT-MJ"
   CONFIG_DIRECTORY: "./terraform"
+  TF_VAR_SSH_KEY: ${{ secrets.SSH_KEY }}
 
 jobs:
   # job_application_test_and_build:
@@ -64,14 +65,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
-      - name: Set up SSH keys
-        env:
-          SSH_KEY: ${{ secrets.SSH_KEY }}
-        run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_KEY" > ~/.ssh/itt-keys.pem
-          chmod 400 ~/.ssh/itt-keys.pem
 
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
