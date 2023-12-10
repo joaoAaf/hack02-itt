@@ -7,11 +7,11 @@ resource "aws_instance" "hack02-itt" {
     Name = "hack02-itt"
   }
   provisioner "file" {
-    source = "./terraform/configs.sh"
+    source = "configs.sh"
     destination = "configs.sh"
   }
   provisioner "file" {
-    source = "./terraform/docker-compose.yml"
+    source = "docker-compose.yml"
     destination = "docker-compose.yml"
   }
   provisioner "remote-exec" {
