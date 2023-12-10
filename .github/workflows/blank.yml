@@ -52,16 +52,15 @@ jobs:
   #         docker build -t joaoaaf/golang-api:1.0 .
   #         docker push joaoaaf/golang-api:1.0
 
-  job_terraform:
+  job_terraform_plan:
     # needs:
     #   job_image_build_and_push
 
-    if: github.repository != 'hashicorp-education/learn-terraform-github-actions'
     name: "Terraform Plan"
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: write
+      # pull-requests: write
 
     steps:
       - uses: actions/checkout@v3
@@ -128,3 +127,20 @@ jobs:
       #         repo: context.repo.repo,
       #         body: output
       #       });
+  # job_terraform_apply:
+    # needs:
+    #   job_image_build_and_push
+    
+    # name: "Terraform Apply"
+    # runs-on: ubuntu-latest
+    # permissions:
+    #   contents: read
+      # pull-requests: write
+    
+    # steps:
+    #   - uses: actions/checkout@v3
+    
+    #   - name: webfactory/ssh-agent
+    #     uses: webfactory/ssh-agent@v0.8.0
+    #     with:
+    #       ssh-private-key: ${{ secrets.SSH_KEY }}
