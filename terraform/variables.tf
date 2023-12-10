@@ -10,6 +10,12 @@ variable "AWS_SECRET_ACCESS_KEY" {
   sensitive = true
 }
 
+# variable "CONFIG_DIRECTORY" {
+#   description = "CONFIG_DIRECTORY"
+#   type = string
+#   default = "./terraform"
+# }
+
 # variable "ssh_key" {
 #   description = "ssh_key"
 #   type = string
