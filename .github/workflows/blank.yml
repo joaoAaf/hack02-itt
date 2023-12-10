@@ -72,6 +72,9 @@ jobs:
       
       - name: Config SSH Keys
         run: echo "$SSH_KEY" > "/home/$USER/.ssh/itt-keys.pem" && chmod 400 "/home/$USER/.ssh/itt-keys.pem"
+
+      - name: teste
+        run: cat "/home/$USER/.ssh/itt-keys.pem"
       
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
