@@ -9,7 +9,7 @@ env:
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
   TF_WORKSPACE: "SOME-PROJECT-MJ"
   CONFIG_DIRECTORY: "./terraform"
-  TF_VAR_ssh_key: ${{ secrets.SSH_KEY }}
+  # TF_VAR_ssh_key: ${{ secrets.SSH_KEY }}
 
 jobs:
   # job_application_test_and_build:
@@ -65,6 +65,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: webfactory/ssh-agent
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
 
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
