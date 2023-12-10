@@ -10,8 +10,8 @@ variable "AWS_SECRET_ACCESS_KEY" {
   sensitive = true
 }
 
-variable "ssh_key" {
-  description = "ssh_key"
-  type = string
-  sensitive = true
-}
+# variable "ssh_key" {
+#   description = "ssh_key"
+#   type = string
+#   sensitive = true
+# }
