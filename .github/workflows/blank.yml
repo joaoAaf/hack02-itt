@@ -66,12 +66,12 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
-
-      - name: Create SSH Directory
-        run: mkdir "/home/$USER/.ssh"
       
       - name: Config SSH Keys
-        run: echo "$SSH_KEY" > "/home/$USER/.ssh/itt-keys.pem" && chmod 400 "/home/$USER/.ssh/itt-keys.pem"
+        run: echo "$SSH_KEY" > "itt-keys.pem" && chmod 400 "itt-keys.pem"
+
+      - name: teste
+        run: ls
       
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
