@@ -16,7 +16,7 @@ func main() {
 	e.Use(middleware.Recover())
 
 	e.GET("/", func(c echo.Context) error {
-		return c.HTML(http.StatusOK, "IT talent, 16/08! <3")
+		return c.HTML(http.StatusOK, "IT talent, 11/12! /o/")
 	})
 
 	e.GET("/health", func(c echo.Context) error {
@@ -39,4 +39,3 @@ func IntMin(a, b int) int {
 	}
 	return b
 }
-
