@@ -68,6 +68,8 @@ jobs:
         run: |
           echo "${{ secrets.SSH_KEY }}" > ./terraform/key.pem
           chmod 400 ./terraform/key.pem
+          eval "$(ssh-agent -s)"
+          ssh-add ./terraform/key.pem
 
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
@@ -107,6 +109,8 @@ jobs:
         run: |
           echo "${{ secrets.SSH_KEY }}" > ./terraform/key.pem
           chmod 400 ./terraform/key.pem
+          eval "$(ssh-agent -s)"
+          ssh-add ./terraform/key.pem
 
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
