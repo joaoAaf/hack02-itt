@@ -7,27 +7,6 @@ resource "aws_instance" "hack02-itt" {
     Name = "hack02-itt"
   }
   user_data = file("${path.module}/configs.sh")
-  # provisioner "file" {
-  #   source = "configs.sh"
-  #   destination = "configs.sh"
-  # }
-  # provisioner "file" {
-  #   source = "docker-compose.yml"
-  #   destination = "docker-compose.yml"
-  # }
-  # provisioner "remote-exec" {
-  #   inline = [ 
-  #       "sudo chmod +x configs.sh",
-  #       "sudo ./configs.sh",
-  #       "sudo docker compose up -d",
-  #   ]
-  # }
-  # connection {
-  #   type = "ssh"
-  #   user = "ubuntu"
-  #   private_key = file("./key.pem")
-  #   host = self.public_ip
-  # }
 }
 output "hack02-itt" {
   value = aws_instance.hack02-itt.public_dns
