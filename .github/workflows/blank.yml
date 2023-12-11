@@ -55,7 +55,7 @@ jobs:
   
     needs:
       job_image_build_and_push
-    name: "terraform destroy"
+    name: "Terraform Destroy"
     runs-on: ubuntu-latest    
     steps:
       - name: Checkout
