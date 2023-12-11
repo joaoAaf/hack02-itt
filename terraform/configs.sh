@@ -6,4 +6,4 @@ sh get-docker.sh
 rm get-docker.sh
 groupadd docker
 usermod -aG docker ubuntu
-docker compose up -d
+docker run -d --name api -p 80:8080 joaoaaf/golang-api:1.0
