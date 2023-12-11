@@ -53,7 +53,7 @@ jobs:
 
   job_terraform_destroy:
     needs:
-      job_terraform_plan
+      job_application_test_and_build
     
     name: "Terraform Destroy"
     runs-on: ubuntu-latest
@@ -87,7 +87,7 @@ jobs:
   
   job_terraform_plan:
     needs:
-      job_image_build_and_push
+      job_terraform_destroy
 
     name: "Terraform Plan"
     runs-on: ubuntu-latest
